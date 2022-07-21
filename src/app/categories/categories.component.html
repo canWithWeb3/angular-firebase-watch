@@ -1,0 +1,20 @@
+
+
+<div class="list-group">
+  <a
+    [class.active]="selectedCategory==null"
+    (click)="selectCategory()"
+    routerLink="/movies"
+    class="list-group-item list-group-item-action active"
+    aria-current="true">
+    Tüm Kategoriler
+  </a>
+  <a
+    [class.active]="selectedCategory==category"
+    (click)="selectCategory(category)"
+    *ngFor="let category of categories"
+    routerLink="/movies/category/{{ category.name }}"
+    class="list-group-item list-group-item-action">
+      {{ category.name }}
+    </a>
+</div>

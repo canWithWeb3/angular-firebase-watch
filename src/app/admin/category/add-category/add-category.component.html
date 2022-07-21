@@ -1,0 +1,15 @@
+<section id="add-category">
+  <div class="card col-lg-5 col-md-7 mx-auto">
+    <div class="card-header">Kategori Ekle</div>
+    <div class="card-body">
+      <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Kategori Adı:</label>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+      </form>
+    </div>
+  </div>
+</section>

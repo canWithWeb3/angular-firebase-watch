@@ -1,0 +1,16 @@
+<section id="add-category">
+  <div class="card col-lg-5 col-md-7 mx-auto">
+    <div class="card-header">Kategori Düzenle</div>
+    <div class="card-body">
+      <form [formGroup]="categoryForm" (ngSubmit)="editCategory()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Kategori Adı:</label>
+          <input type="text" class="form-control" formControlName="name" placeholder="{{category.name}}">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kategori Düzenle</button>
+        <a routerLink="/admin/category" class="btn btn-secondary ms-3">İptal</a>
+      </form>
+    </div>
+  </div>
+</section>

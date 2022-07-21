@@ -1,0 +1,23 @@
+
+
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-3">
+      <img src="/assets/img/{{ movie.image }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-9">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.name | titlecase }}</h5>
+        <span class="badge bg-info mb-3 me-3">
+          {{ movie.publishYear }}
+        </span>
+        <span class="badge bg-success">
+          {{ movie.imdb }}
+        </span>
+        <p class="card-text">{{ movie.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ movie.createdAt }}</small></p>
+        <button (click)="addToList($event, movie.name)" class="btn btn-primary d-block w-100">Listene Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

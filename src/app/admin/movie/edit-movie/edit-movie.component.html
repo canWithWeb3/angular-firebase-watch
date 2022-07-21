@@ -1,0 +1,53 @@
+<section id="add-movie">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="card">
+          <div class="card-header">Film Düzenle</div>
+          <div class="card-body">
+            <div *ngIf="error" class="alert alert-warning">
+              {{ error }}
+            </div>
+            <form [formGroup]="movieForm" (ngSubmit)="editMovie()">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Film Adı:</label>
+                    <input placeholder="{{ movie.name }}" type="text" class="form-control" formControlName="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Film Resim:</label>
+                    <input placeholder="{{ movie.image }}" type="text" class="form-control" formControlName="image">
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Film Açıklama:</label>
+                    <textarea placeholder="{{ movie.description }}" rows="3" class="form-control" formControlName="description"></textarea>
+                  </div>
+                  <div class="mb-3 d-flex gap-3">
+                    <div>
+                      <label for="publishYear" class="form-label">Yayın Yılı:</label>
+                      <input placeholder="{{ movie.publishYear }}" type="text" class="form-control" formControlName="publishYear">
+                    </div>
+                    <div>
+                      <label for="imdb" class="form-label">Imdb:</label>
+                      <input placeholder="{{ movie.imdb }}" type="text" class="form-control" formControlName="imdb">
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <select formControlName="categoryName" class="form-select" aria-label="Default select example">
+                      <option *ngFor="let category of categories">{{ category.name }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Film Düzenle</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

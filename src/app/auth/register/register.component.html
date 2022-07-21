@@ -1,0 +1,33 @@
+
+
+<div class="col-md-8 mx-auto">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="mb-3 text-center">Kayıt Ol</h3>
+      <hr>
+      <div *ngIf="error" class="alert alert-warning">
+        {{ error }}
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="addUser()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Kullanıcı Adı:</label>
+          <input type="text" class="form-control" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Parola:</label>
+          <input type="text" class="form-control" formControlName="password">
+        </div>
+        <div class="mb-3">
+          <label for="repassword" class="form-label">Parola (Tekrar):</label>
+          <input type="text" class="form-control" formControlName="repassword">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kayıt ol</button>
+      </form>
+    </div>
+  </div>
+</div>

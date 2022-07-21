@@ -1,0 +1,34 @@
+
+
+<div class="input-group mb-3">
+  <input [(ngModel)]="filterText" type="text" class="form-control" placeholder="Film giriniz" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <span class="btn btn-outline-primary" id="basic-addon2">Submit</span>
+  <small *ngIf="filterText" class="text-muted d-block my-3 w-100">Kelime: {{ filterText }}</small>
+</div>
+
+<div class="row gap-2">
+  <ng-container *ngFor="let movie of movies | movieFilter: filterText">
+    <div class="card mb-3 ps-0">
+      <div class="row g-0 p-0 m-0">
+        <div class="col-md-3">
+          <img src="/assets/img/{{ movie.image }}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.name | titlecase }}</h5>
+            <span class="badge bg-info mb-3 me-3">
+              {{ movie.publishYear }}
+            </span>
+            <span class="badge bg-success">
+              {{ movie.imdb }}
+            </span>
+            <p class="card-text">{{ movie.description }}</p>
+            <p class="card-text"><small class="text-muted">{{ movie.createdAt }}</small></p>
+            <a routerLink="/movies/movie/{{ movie.id }}" class="btn btn-outline-primary me-3">Detay</a>
+            <button (click)="addToList($event, movie.name)" class="btn btn-primary">Listene Ekle</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
